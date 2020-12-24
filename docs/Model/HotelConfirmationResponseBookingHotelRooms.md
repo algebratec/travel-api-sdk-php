@@ -1,0 +1,19 @@
+# HotelConfirmationResponseBookingHotelRooms
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**code** | **string** |  | [optional] 
+**name** | **string** |  | [optional] 
+**rate_key** | **string** |  | [optional] 
+**board_name** | **string** |  | [optional] 
+**board_code** | **string** |  | [optional] 
+**price** | **int** |  | [optional] 
+**adults** | **int** |  | [optional] 
+**children** | **int** |  | [optional] 
+**cancellation_policies** | [**\Swagger\Client\Model\CancellationPolicy[]**](CancellationPolicy.md) |  | [optional] 
+**paxes** | [**\Swagger\Client\Model\HotelConfirmationResponseBookingHotelPaxes[]**](HotelConfirmationResponseBookingHotelPaxes.md) |  | [optional] 
+**extras** | [**\Swagger\Client\Model\HotelConfirmationResponseBookingHotelExtras[]**](HotelConfirmationResponseBookingHotelExtras.md) |  | [optional] 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+
