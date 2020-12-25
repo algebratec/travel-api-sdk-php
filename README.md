@@ -67,26 +67,6 @@ $apiInstance = new Swagger\Client\Api\FlightApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\FlightBookingKeyRequest(); // \Swagger\Client\Model\FlightBookingKeyRequest | 
-
-try {
-    $result = $apiInstance->flightAirRevalidate($body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling FlightApi->flightAirRevalidate: ', $e->getMessage(), PHP_EOL;
-}
-
-// Configure API key authorization: api_auth
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-AUTHORIZATION', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-AUTHORIZATION', 'Bearer');
-
-$apiInstance = new Swagger\Client\Api\FlightApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $term = "term_example"; // string | 
 
 try {
@@ -154,6 +134,26 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FlightApi->flightFare: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure API key authorization: api_auth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-AUTHORIZATION', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-AUTHORIZATION', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\FlightApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \Swagger\Client\Model\FlightBookingKeyRequest(); // \Swagger\Client\Model\FlightBookingKeyRequest | 
+
+try {
+    $result = $apiInstance->flightFareRules($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FlightApi->flightFareRules: ', $e->getMessage(), PHP_EOL;
 }
 
 // Configure API key authorization: api_auth
@@ -244,11 +244,11 @@ All URIs are relative to *https://virtserver.swaggerhub.com/alswagger/travel-api
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*FlightApi* | [**flightAirRevalidate**](docs/Api/FlightApi.md#flightairrevalidate) | **POST** /v1/flight/booking/fare | airRevalidate service to check if flight is still bookable
 *FlightApi* | [**flightAirportAutocomplete**](docs/Api/FlightApi.md#flightairportautocomplete) | **GET** /v1/flight/booking/airport/{term} | airport autocomplete service
 *FlightApi* | [**flightAvailability**](docs/Api/FlightApi.md#flightavailability) | **POST** /v1/flight/booking/availability | flight availability service
 *FlightApi* | [**flightBookingConfirmaiton**](docs/Api/FlightApi.md#flightbookingconfirmaiton) | **POST** /v1/flight/booking/confirmation | confirm flight booking
-*FlightApi* | [**flightFare**](docs/Api/FlightApi.md#flightfare) | **POST** /v1/flight/booking/fareRules | flight fare service, this service provide the airline fare rules
+*FlightApi* | [**flightFare**](docs/Api/FlightApi.md#flightfare) | **POST** /v1/flight/booking/fare | fare service to check if flight is still bookable
+*FlightApi* | [**flightFareRules**](docs/Api/FlightApi.md#flightfarerules) | **POST** /v1/flight/booking/fareRules | flight fare rules service, this service provide the airline fare rules
 *FlightApi* | [**flightOnHoldBookingConfirmation**](docs/Api/FlightApi.md#flightonholdbookingconfirmation) | **POST** /v1/flight/booking/confirmOnHoldBooking/{bookingId} | confirm on hold flight booking
 *FlightApi* | [**flightRefreshPNR**](docs/Api/FlightApi.md#flightrefreshpnr) | **POST** /v1/flight/booking/refresh/{bookingId} | Refresh flight booking using booking id
 *FlightApi* | [**flightRetrievePNR**](docs/Api/FlightApi.md#flightretrievepnr) | **GET** /v1/flight/booking/retrievePNR/{recordLocator} | retrieve PNR using PNR record

@@ -4,67 +4,15 @@ All URIs are relative to *https://virtserver.swaggerhub.com/alswagger/travel-api
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**flightAirRevalidate**](FlightApi.md#flightairrevalidate) | **POST** /v1/flight/booking/fare | airRevalidate service to check if flight is still bookable
 [**flightAirportAutocomplete**](FlightApi.md#flightairportautocomplete) | **GET** /v1/flight/booking/airport/{term} | airport autocomplete service
 [**flightAvailability**](FlightApi.md#flightavailability) | **POST** /v1/flight/booking/availability | flight availability service
 [**flightBookingConfirmaiton**](FlightApi.md#flightbookingconfirmaiton) | **POST** /v1/flight/booking/confirmation | confirm flight booking
-[**flightFare**](FlightApi.md#flightfare) | **POST** /v1/flight/booking/fareRules | flight fare service, this service provide the airline fare rules
+[**flightFare**](FlightApi.md#flightfare) | **POST** /v1/flight/booking/fare | fare service to check if flight is still bookable
+[**flightFareRules**](FlightApi.md#flightfarerules) | **POST** /v1/flight/booking/fareRules | flight fare rules service, this service provide the airline fare rules
 [**flightOnHoldBookingConfirmation**](FlightApi.md#flightonholdbookingconfirmation) | **POST** /v1/flight/booking/confirmOnHoldBooking/{bookingId} | confirm on hold flight booking
 [**flightRefreshPNR**](FlightApi.md#flightrefreshpnr) | **POST** /v1/flight/booking/refresh/{bookingId} | Refresh flight booking using booking id
 [**flightRetrievePNR**](FlightApi.md#flightretrievepnr) | **GET** /v1/flight/booking/retrievePNR/{recordLocator} | retrieve PNR using PNR record
 [**flightVoidPNR**](FlightApi.md#flightvoidpnr) | **DELETE** /v1/flight/booking/voidPNR/{bookingId} | void PNR service, this service should be used in non BSP market to cancel the PNR before midnight
-
-# **flightAirRevalidate**
-> \Swagger\Client\Model\FlightFareResponse flightAirRevalidate($body)
-
-airRevalidate service to check if flight is still bookable
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: api_auth
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-AUTHORIZATION', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-AUTHORIZATION', 'Bearer');
-
-$apiInstance = new Swagger\Client\Api\FlightApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$body = new \Swagger\Client\Model\FlightBookingKeyRequest(); // \Swagger\Client\Model\FlightBookingKeyRequest | 
-
-try {
-    $result = $apiInstance->flightAirRevalidate($body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling FlightApi->flightAirRevalidate: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\FlightBookingKeyRequest**](../Model/FlightBookingKeyRequest.md)|  | [optional]
-
-### Return type
-
-[**\Swagger\Client\Model\FlightFareResponse**](../Model/FlightFareResponse.md)
-
-### Authorization
-
-[api_auth](../../README.md#api_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **flightAirportAutocomplete**
 > \Swagger\Client\Model\FlightAirportAutocompleteResponse flightAirportAutocomplete($term)
@@ -223,9 +171,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **flightFare**
-> \Swagger\Client\Model\FlightFareRulesResponse flightFare($body)
+> \Swagger\Client\Model\FlightFareResponse flightFare($body)
 
-flight fare service, this service provide the airline fare rules
+fare service to check if flight is still bookable
 
 ### Example
 ```php
@@ -249,6 +197,58 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FlightApi->flightFare: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Swagger\Client\Model\FlightBookingKeyRequest**](../Model/FlightBookingKeyRequest.md)|  | [optional]
+
+### Return type
+
+[**\Swagger\Client\Model\FlightFareResponse**](../Model/FlightFareResponse.md)
+
+### Authorization
+
+[api_auth](../../README.md#api_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **flightFareRules**
+> \Swagger\Client\Model\FlightFareRulesResponse flightFareRules($body)
+
+flight fare rules service, this service provide the airline fare rules
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: api_auth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-AUTHORIZATION', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-AUTHORIZATION', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\FlightApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \Swagger\Client\Model\FlightBookingKeyRequest(); // \Swagger\Client\Model\FlightBookingKeyRequest | 
+
+try {
+    $result = $apiInstance->flightFareRules($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FlightApi->flightFareRules: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

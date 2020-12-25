@@ -87,278 +87,6 @@ class FlightApi
     }
 
     /**
-     * Operation flightAirRevalidate
-     *
-     * airRevalidate service to check if flight is still bookable
-     *
-     * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body body (optional)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\FlightFareResponse
-     */
-    public function flightAirRevalidate($body = null)
-    {
-        list($response) = $this->flightAirRevalidateWithHttpInfo($body);
-        return $response;
-    }
-
-    /**
-     * Operation flightAirRevalidateWithHttpInfo
-     *
-     * airRevalidate service to check if flight is still bookable
-     *
-     * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\FlightFareResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function flightAirRevalidateWithHttpInfo($body = null)
-    {
-        $returnType = '\Swagger\Client\Model\FlightFareResponse';
-        $request = $this->flightAirRevalidateRequest($body);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\FlightFareResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\AlgebratecResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\AlgebratecResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation flightAirRevalidateAsync
-     *
-     * airRevalidate service to check if flight is still bookable
-     *
-     * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function flightAirRevalidateAsync($body = null)
-    {
-        return $this->flightAirRevalidateAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation flightAirRevalidateAsyncWithHttpInfo
-     *
-     * airRevalidate service to check if flight is still bookable
-     *
-     * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function flightAirRevalidateAsyncWithHttpInfo($body = null)
-    {
-        $returnType = '\Swagger\Client\Model\FlightFareResponse';
-        $request = $this->flightAirRevalidateRequest($body);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'flightAirRevalidate'
-     *
-     * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function flightAirRevalidateRequest($body = null)
-    {
-
-        $resourcePath = '/v1/flight/booking/fare';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('X-AUTHORIZATION');
-        if ($apiKey !== null) {
-            $headers['X-AUTHORIZATION'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation flightAirportAutocomplete
      *
      * airport autocomplete service
@@ -1188,13 +916,13 @@ class FlightApi
     /**
      * Operation flightFare
      *
-     * flight fare service, this service provide the airline fare rules
+     * fare service to check if flight is still bookable
      *
      * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\FlightFareRulesResponse
+     * @return \Swagger\Client\Model\FlightFareResponse
      */
     public function flightFare($body = null)
     {
@@ -1205,7 +933,279 @@ class FlightApi
     /**
      * Operation flightFareWithHttpInfo
      *
-     * flight fare service, this service provide the airline fare rules
+     * fare service to check if flight is still bookable
+     *
+     * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\FlightFareResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function flightFareWithHttpInfo($body = null)
+    {
+        $returnType = '\Swagger\Client\Model\FlightFareResponse';
+        $request = $this->flightFareRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\FlightFareResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\AlgebratecResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\AlgebratecResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation flightFareAsync
+     *
+     * fare service to check if flight is still bookable
+     *
+     * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function flightFareAsync($body = null)
+    {
+        return $this->flightFareAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation flightFareAsyncWithHttpInfo
+     *
+     * fare service to check if flight is still bookable
+     *
+     * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function flightFareAsyncWithHttpInfo($body = null)
+    {
+        $returnType = '\Swagger\Client\Model\FlightFareResponse';
+        $request = $this->flightFareRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'flightFare'
+     *
+     * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function flightFareRequest($body = null)
+    {
+
+        $resourcePath = '/v1/flight/booking/fare';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-AUTHORIZATION');
+        if ($apiKey !== null) {
+            $headers['X-AUTHORIZATION'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation flightFareRules
+     *
+     * flight fare rules service, this service provide the airline fare rules
+     *
+     * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body body (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\FlightFareRulesResponse
+     */
+    public function flightFareRules($body = null)
+    {
+        list($response) = $this->flightFareRulesWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation flightFareRulesWithHttpInfo
+     *
+     * flight fare rules service, this service provide the airline fare rules
      *
      * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
      *
@@ -1213,10 +1213,10 @@ class FlightApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\FlightFareRulesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function flightFareWithHttpInfo($body = null)
+    public function flightFareRulesWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\FlightFareRulesResponse';
-        $request = $this->flightFareRequest($body);
+        $request = $this->flightFareRulesRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1294,18 +1294,18 @@ class FlightApi
     }
 
     /**
-     * Operation flightFareAsync
+     * Operation flightFareRulesAsync
      *
-     * flight fare service, this service provide the airline fare rules
+     * flight fare rules service, this service provide the airline fare rules
      *
      * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function flightFareAsync($body = null)
+    public function flightFareRulesAsync($body = null)
     {
-        return $this->flightFareAsyncWithHttpInfo($body)
+        return $this->flightFareRulesAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1314,19 +1314,19 @@ class FlightApi
     }
 
     /**
-     * Operation flightFareAsyncWithHttpInfo
+     * Operation flightFareRulesAsyncWithHttpInfo
      *
-     * flight fare service, this service provide the airline fare rules
+     * flight fare rules service, this service provide the airline fare rules
      *
      * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function flightFareAsyncWithHttpInfo($body = null)
+    public function flightFareRulesAsyncWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\FlightFareRulesResponse';
-        $request = $this->flightFareRequest($body);
+        $request = $this->flightFareRulesRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1366,14 +1366,14 @@ class FlightApi
     }
 
     /**
-     * Create request for operation 'flightFare'
+     * Create request for operation 'flightFareRules'
      *
      * @param  \Swagger\Client\Model\FlightBookingKeyRequest $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function flightFareRequest($body = null)
+    protected function flightFareRulesRequest($body = null)
     {
 
         $resourcePath = '/v1/flight/booking/fareRules';

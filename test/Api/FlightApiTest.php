@@ -71,16 +71,6 @@ class FlightApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for flightAirRevalidate
-     *
-     * airRevalidate service to check if flight is still bookable.
-     *
-     */
-    public function testFlightAirRevalidate()
-    {
-    }
-
-    /**
      * Test case for flightAirportAutocomplete
      *
      * airport autocomplete service.
@@ -113,10 +103,20 @@ class FlightApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for flightFare
      *
-     * flight fare service, this service provide the airline fare rules.
+     * fare service to check if flight is still bookable.
      *
      */
     public function testFlightFare()
+    {
+    }
+
+    /**
+     * Test case for flightFareRules
+     *
+     * flight fare rules service, this service provide the airline fare rules.
+     *
+     */
+    public function testFlightFareRules()
     {
     }
 
