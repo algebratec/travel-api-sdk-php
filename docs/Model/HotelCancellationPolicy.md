@@ -1,4 +1,4 @@
-# CancellationPolicy
+# HotelCancellationPolicy
 
 ## Properties
 Name | Type | Description | Notes

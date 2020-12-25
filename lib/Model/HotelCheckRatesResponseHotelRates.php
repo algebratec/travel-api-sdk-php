@@ -62,7 +62,7 @@ class HotelCheckRatesResponseHotelRates implements ModelInterface, ArrayAccess
 'net' => 'int',
 'adults' => 'int',
 'children' => 'int',
-'cancellation_policies' => '\Swagger\Client\Model\CancellationPolicy[]'    ];
+'cancellation_policies' => '\Swagger\Client\Model\HotelCancellationPolicy[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -379,7 +379,7 @@ class HotelCheckRatesResponseHotelRates implements ModelInterface, ArrayAccess
     /**
      * Gets cancellation_policies
      *
-     * @return \Swagger\Client\Model\CancellationPolicy[]
+     * @return \Swagger\Client\Model\HotelCancellationPolicy[]
      */
     public function getCancellationPolicies()
     {
@@ -389,7 +389,7 @@ class HotelCheckRatesResponseHotelRates implements ModelInterface, ArrayAccess
     /**
      * Sets cancellation_policies
      *
-     * @param \Swagger\Client\Model\CancellationPolicy[] $cancellation_policies cancellation_policies
+     * @param \Swagger\Client\Model\HotelCancellationPolicy[] $cancellation_policies cancellation_policies
      *
      * @return $this
      */

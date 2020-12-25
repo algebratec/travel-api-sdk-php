@@ -81,11 +81,4 @@ class HotelAvailabilityResponseTest extends \PHPUnit_Framework_TestCase
     public function testPropertyHotels()
     {
     }
-
-    /**
-     * Test attribute "suppliers"
-     */
-    public function testPropertySuppliers()
-    {
-    }
 }

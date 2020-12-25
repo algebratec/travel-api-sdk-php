@@ -56,7 +56,8 @@ class FlightRecommendation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'baggage' => '\Swagger\Client\Model\FlightBaggageAllowance',
+        'provider_code' => 'string',
+'baggage' => '\Swagger\Client\Model\FlightBaggageAllowance',
 'booking_key' => 'string',
 'fare_details' => '\Swagger\Client\Model\FlightAvailabilityFareDetails[][]',
 'flights' => 'int[][]',
@@ -70,7 +71,8 @@ class FlightRecommendation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'baggage' => null,
+        'provider_code' => null,
+'baggage' => null,
 'booking_key' => null,
 'fare_details' => null,
 'flights' => null,
@@ -105,7 +107,8 @@ class FlightRecommendation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'baggage' => 'baggage',
+        'provider_code' => 'providerCode',
+'baggage' => 'baggage',
 'booking_key' => 'bookingKey',
 'fare_details' => 'fareDetails',
 'flights' => 'flights',
@@ -119,7 +122,8 @@ class FlightRecommendation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'baggage' => 'setBaggage',
+        'provider_code' => 'setProviderCode',
+'baggage' => 'setBaggage',
 'booking_key' => 'setBookingKey',
 'fare_details' => 'setFareDetails',
 'flights' => 'setFlights',
@@ -133,7 +137,8 @@ class FlightRecommendation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'baggage' => 'getBaggage',
+        'provider_code' => 'getProviderCode',
+'baggage' => 'getBaggage',
 'booking_key' => 'getBookingKey',
 'fare_details' => 'getFareDetails',
 'flights' => 'getFlights',
@@ -199,6 +204,7 @@ class FlightRecommendation implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['provider_code'] = isset($data['provider_code']) ? $data['provider_code'] : null;
         $this->container['baggage'] = isset($data['baggage']) ? $data['baggage'] : null;
         $this->container['booking_key'] = isset($data['booking_key']) ? $data['booking_key'] : null;
         $this->container['fare_details'] = isset($data['fare_details']) ? $data['fare_details'] : null;
@@ -231,6 +237,30 @@ class FlightRecommendation implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets provider_code
+     *
+     * @return string
+     */
+    public function getProviderCode()
+    {
+        return $this->container['provider_code'];
+    }
+
+    /**
+     * Sets provider_code
+     *
+     * @param string $provider_code provider_code
+     *
+     * @return $this
+     */
+    public function setProviderCode($provider_code)
+    {
+        $this->container['provider_code'] = $provider_code;
+
+        return $this;
+    }
 
     /**
      * Gets baggage

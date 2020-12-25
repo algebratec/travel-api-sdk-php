@@ -76,6 +76,13 @@ class FlightRecommendationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "provider_code"
+     */
+    public function testPropertyProviderCode()
+    {
+    }
+
+    /**
      * Test attribute "baggage"
      */
     public function testPropertyBaggage()

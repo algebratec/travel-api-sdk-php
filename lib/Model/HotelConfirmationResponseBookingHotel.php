@@ -75,8 +75,7 @@ class HotelConfirmationResponseBookingHotel implements ModelInterface, ArrayAcce
 'currency' => 'string',
 'check_in' => '\DateTime',
 'check_out' => '\DateTime',
-'rooms' => '\Swagger\Client\Model\HotelConfirmationResponseBookingHotelRooms[]',
-'suppliers' => '\Swagger\Client\Model\Supplier[]'    ];
+'rooms' => '\Swagger\Client\Model\HotelConfirmationResponseBookingHotelRooms[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -103,8 +102,7 @@ class HotelConfirmationResponseBookingHotel implements ModelInterface, ArrayAcce
 'currency' => null,
 'check_in' => 'date',
 'check_out' => 'date',
-'rooms' => null,
-'suppliers' => null    ];
+'rooms' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -152,8 +150,7 @@ class HotelConfirmationResponseBookingHotel implements ModelInterface, ArrayAcce
 'currency' => 'currency',
 'check_in' => 'checkIn',
 'check_out' => 'checkOut',
-'rooms' => 'rooms',
-'suppliers' => 'suppliers'    ];
+'rooms' => 'rooms'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -180,8 +177,7 @@ class HotelConfirmationResponseBookingHotel implements ModelInterface, ArrayAcce
 'currency' => 'setCurrency',
 'check_in' => 'setCheckIn',
 'check_out' => 'setCheckOut',
-'rooms' => 'setRooms',
-'suppliers' => 'setSuppliers'    ];
+'rooms' => 'setRooms'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -208,8 +204,7 @@ class HotelConfirmationResponseBookingHotel implements ModelInterface, ArrayAcce
 'currency' => 'getCurrency',
 'check_in' => 'getCheckIn',
 'check_out' => 'getCheckOut',
-'rooms' => 'getRooms',
-'suppliers' => 'getSuppliers'    ];
+'rooms' => 'getRooms'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -308,7 +303,6 @@ self::CATEGORY__5EST,        ];
         $this->container['check_in'] = isset($data['check_in']) ? $data['check_in'] : null;
         $this->container['check_out'] = isset($data['check_out']) ? $data['check_out'] : null;
         $this->container['rooms'] = isset($data['rooms']) ? $data['rooms'] : null;
-        $this->container['suppliers'] = isset($data['suppliers']) ? $data['suppliers'] : null;
     }
 
     /**
@@ -828,30 +822,6 @@ self::CATEGORY__5EST,        ];
     public function setRooms($rooms)
     {
         $this->container['rooms'] = $rooms;
-
-        return $this;
-    }
-
-    /**
-     * Gets suppliers
-     *
-     * @return \Swagger\Client\Model\Supplier[]
-     */
-    public function getSuppliers()
-    {
-        return $this->container['suppliers'];
-    }
-
-    /**
-     * Sets suppliers
-     *
-     * @param \Swagger\Client\Model\Supplier[] $suppliers suppliers
-     *
-     * @return $this
-     */
-    public function setSuppliers($suppliers)
-    {
-        $this->container['suppliers'] = $suppliers;
 
         return $this;
     }

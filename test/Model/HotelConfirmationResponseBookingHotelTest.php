@@ -214,11 +214,4 @@ class HotelConfirmationResponseBookingHotelTest extends \PHPUnit_Framework_TestC
     public function testPropertyRooms()
     {
     }
-
-    /**
-     * Test attribute "suppliers"
-     */
-    public function testPropertySuppliers()
-    {
-    }
 }

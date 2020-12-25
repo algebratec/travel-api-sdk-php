@@ -214,11 +214,4 @@ class HotelCheckRatesResponseHotelTest extends \PHPUnit_Framework_TestCase
     public function testPropertyRooms()
     {
     }
-
-    /**
-     * Test attribute "suppliers"
-     */
-    public function testPropertySuppliers()
-    {
-    }
 }

@@ -83,6 +83,13 @@ class HotelAvailabilityResponseHotelsHotelsTest extends \PHPUnit_Framework_TestC
     }
 
     /**
+     * Test attribute "provider_code"
+     */
+    public function testPropertyProviderCode()
+    {
+    }
+
+    /**
      * Test attribute "contract_code"
      */
     public function testPropertyContractCode()

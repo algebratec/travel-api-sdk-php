@@ -83,9 +83,16 @@ class AlgebratecResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "provider"
+     * Test attribute "providers"
      */
-    public function testPropertyProvider()
+    public function testPropertyProviders()
+    {
+    }
+
+    /**
+     * Test attribute "suppliers"
+     */
+    public function testPropertySuppliers()
     {
     }
 

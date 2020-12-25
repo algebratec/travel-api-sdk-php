@@ -240,7 +240,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to */*
+All URIs are relative to *https://virtserver.swaggerhub.com/alswagger/travel-api/1.0.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -262,7 +262,6 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AlgebratecResponse](docs/Model/AlgebratecResponse.md)
- - [CancellationPolicy](docs/Model/CancellationPolicy.md)
  - [Error](docs/Model/Error.md)
  - [ErrorFields](docs/Model/ErrorFields.md)
  - [FlightAirline](docs/Model/FlightAirline.md)
@@ -321,6 +320,7 @@ Class | Method | HTTP request | Description
  - [HotelAvailabilityResponseHotelsRooms](docs/Model/HotelAvailabilityResponseHotelsRooms.md)
  - [HotelAvailabilityResponseHotelsTaxes](docs/Model/HotelAvailabilityResponseHotelsTaxes.md)
  - [HotelAvailabilityResponseHotelsThemes](docs/Model/HotelAvailabilityResponseHotelsThemes.md)
+ - [HotelCancellationPolicy](docs/Model/HotelCancellationPolicy.md)
  - [HotelCancellationResponse](docs/Model/HotelCancellationResponse.md)
  - [HotelCancellationResponseBooking](docs/Model/HotelCancellationResponseBooking.md)
  - [HotelCancellationResponseBookingHotel](docs/Model/HotelCancellationResponseBookingHotel.md)
@@ -344,6 +344,7 @@ Class | Method | HTTP request | Description
  - [HotelConfirmationResponseBookingHotelRooms](docs/Model/HotelConfirmationResponseBookingHotelRooms.md)
  - [HotelRetrieveBookingResponse](docs/Model/HotelRetrieveBookingResponse.md)
  - [HotelRetrieveBookingResponseBooking](docs/Model/HotelRetrieveBookingResponseBooking.md)
+ - [Provider](docs/Model/Provider.md)
  - [Supplier](docs/Model/Supplier.md)
 
 ## Documentation For Authorization

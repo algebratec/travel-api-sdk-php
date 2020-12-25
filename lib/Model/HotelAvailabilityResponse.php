@@ -54,8 +54,7 @@ class HotelAvailabilityResponse extends AlgebratecResponse
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'hotels' => '\Swagger\Client\Model\HotelAvailabilityResponseHotels',
-'suppliers' => '\Swagger\Client\Model\Supplier[]'    ];
+        'hotels' => '\Swagger\Client\Model\HotelAvailabilityResponseHotels'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -63,8 +62,7 @@ class HotelAvailabilityResponse extends AlgebratecResponse
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'hotels' => null,
-'suppliers' => null    ];
+        'hotels' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,8 +91,7 @@ class HotelAvailabilityResponse extends AlgebratecResponse
      * @var string[]
      */
     protected static $attributeMap = [
-        'hotels' => 'hotels',
-'suppliers' => 'suppliers'    ];
+        'hotels' => 'hotels'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -102,8 +99,7 @@ class HotelAvailabilityResponse extends AlgebratecResponse
      * @var string[]
      */
     protected static $setters = [
-        'hotels' => 'setHotels',
-'suppliers' => 'setSuppliers'    ];
+        'hotels' => 'setHotels'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -111,8 +107,7 @@ class HotelAvailabilityResponse extends AlgebratecResponse
      * @var string[]
      */
     protected static $getters = [
-        'hotels' => 'getHotels',
-'suppliers' => 'getSuppliers'    ];
+        'hotels' => 'getHotels'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -169,7 +164,6 @@ class HotelAvailabilityResponse extends AlgebratecResponse
         parent::__construct($data);
 
         $this->container['hotels'] = isset($data['hotels']) ? $data['hotels'] : null;
-        $this->container['suppliers'] = isset($data['suppliers']) ? $data['suppliers'] : null;
     }
 
     /**
@@ -216,30 +210,6 @@ class HotelAvailabilityResponse extends AlgebratecResponse
     public function setHotels($hotels)
     {
         $this->container['hotels'] = $hotels;
-
-        return $this;
-    }
-
-    /**
-     * Gets suppliers
-     *
-     * @return \Swagger\Client\Model\Supplier[]
-     */
-    public function getSuppliers()
-    {
-        return $this->container['suppliers'];
-    }
-
-    /**
-     * Sets suppliers
-     *
-     * @param \Swagger\Client\Model\Supplier[] $suppliers suppliers
-     *
-     * @return $this
-     */
-    public function setSuppliers($suppliers)
-    {
-        $this->container['suppliers'] = $suppliers;
 
         return $this;
     }

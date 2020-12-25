@@ -1,6 +1,6 @@
 <?php
 /**
- * CancellationPolicy
+ * HotelCancellationPolicy
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * CancellationPolicy Class Doc Comment
+ * HotelCancellationPolicy Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CancellationPolicy implements ModelInterface, ArrayAccess
+class HotelCancellationPolicy implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CancellationPolicy implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CancellationPolicy';
+    protected static $swaggerModelName = 'HotelCancellationPolicy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

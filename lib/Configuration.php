@@ -80,7 +80,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = '/';
+    protected $host = 'https://virtserver.swaggerhub.com/alswagger/travel-api/1.0.0';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default

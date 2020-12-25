@@ -64,7 +64,7 @@ class HotelCancellationResponseBookingHotelRooms implements ModelInterface, Arra
 'price' => 'int',
 'adults' => 'int',
 'children' => 'int',
-'cancellation_policies' => '\Swagger\Client\Model\CancellationPolicy[]',
+'cancellation_policies' => '\Swagger\Client\Model\HotelCancellationPolicy[]',
 'paxes' => '\Swagger\Client\Model\HotelConfirmationResponseBookingHotelPaxes[]'    ];
 
     /**
@@ -445,7 +445,7 @@ class HotelCancellationResponseBookingHotelRooms implements ModelInterface, Arra
     /**
      * Gets cancellation_policies
      *
-     * @return \Swagger\Client\Model\CancellationPolicy[]
+     * @return \Swagger\Client\Model\HotelCancellationPolicy[]
      */
     public function getCancellationPolicies()
     {
@@ -455,7 +455,7 @@ class HotelCancellationResponseBookingHotelRooms implements ModelInterface, Arra
     /**
      * Sets cancellation_policies
      *
-     * @param \Swagger\Client\Model\CancellationPolicy[] $cancellation_policies cancellation_policies
+     * @param \Swagger\Client\Model\HotelCancellationPolicy[] $cancellation_policies cancellation_policies
      *
      * @return $this
      */

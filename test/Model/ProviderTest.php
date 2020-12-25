@@ -1,6 +1,6 @@
 <?php
 /**
- * CancellationPolicyTest
+ * ProviderTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * CancellationPolicyTest Class Doc Comment
+ * ProviderTest Class Doc Comment
  *
  * @category    Class
- * @description CancellationPolicy
+ * @description Provider
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CancellationPolicyTest extends \PHPUnit_Framework_TestCase
+class ProviderTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,37 +69,23 @@ class CancellationPolicyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "CancellationPolicy"
+     * Test "Provider"
      */
-    public function testCancellationPolicy()
+    public function testProvider()
     {
     }
 
     /**
-     * Test attribute "from"
+     * Test attribute "name"
      */
-    public function testPropertyFrom()
+    public function testPropertyName()
     {
     }
 
     /**
-     * Test attribute "to"
+     * Test attribute "code"
      */
-    public function testPropertyTo()
-    {
-    }
-
-    /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-    }
-
-    /**
-     * Test attribute "value"
-     */
-    public function testPropertyValue()
+    public function testPropertyCode()
     {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * HotelCancellationResponseTest
+ * HotelCancellationPolicyTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * HotelCancellationResponseTest Class Doc Comment
+ * HotelCancellationPolicyTest Class Doc Comment
  *
  * @category    Class
- * @description HotelCancellationResponse
+ * @description HotelCancellationPolicy
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class HotelCancellationResponseTest extends \PHPUnit_Framework_TestCase
+class HotelCancellationPolicyTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,16 +69,37 @@ class HotelCancellationResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "HotelCancellationResponse"
+     * Test "HotelCancellationPolicy"
      */
-    public function testHotelCancellationResponse()
+    public function testHotelCancellationPolicy()
     {
     }
 
     /**
-     * Test attribute "booking"
+     * Test attribute "from"
      */
-    public function testPropertyBooking()
+    public function testPropertyFrom()
+    {
+    }
+
+    /**
+     * Test attribute "to"
+     */
+    public function testPropertyTo()
+    {
+    }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+    }
+
+    /**
+     * Test attribute "value"
+     */
+    public function testPropertyValue()
     {
     }
 }

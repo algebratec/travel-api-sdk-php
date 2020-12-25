@@ -57,6 +57,7 @@ class HotelAvailabilityResponseHotelsHotels implements ModelInterface, ArrayAcce
       */
     protected static $swaggerTypes = [
         'code' => 'string',
+'provider_code' => 'string',
 'contract_code' => 'string',
 'supplier_code' => 'string',
 'country' => 'string',
@@ -91,6 +92,7 @@ class HotelAvailabilityResponseHotelsHotels implements ModelInterface, ArrayAcce
       */
     protected static $swaggerFormats = [
         'code' => null,
+'provider_code' => null,
 'contract_code' => null,
 'supplier_code' => null,
 'country' => null,
@@ -146,6 +148,7 @@ class HotelAvailabilityResponseHotelsHotels implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'code' => 'code',
+'provider_code' => 'providerCode',
 'contract_code' => 'contractCode',
 'supplier_code' => 'supplierCode',
 'country' => 'country',
@@ -180,6 +183,7 @@ class HotelAvailabilityResponseHotelsHotels implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'code' => 'setCode',
+'provider_code' => 'setProviderCode',
 'contract_code' => 'setContractCode',
 'supplier_code' => 'setSupplierCode',
 'country' => 'setCountry',
@@ -214,6 +218,7 @@ class HotelAvailabilityResponseHotelsHotels implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'code' => 'getCode',
+'provider_code' => 'getProviderCode',
 'contract_code' => 'getContractCode',
 'supplier_code' => 'getSupplierCode',
 'country' => 'getCountry',
@@ -334,6 +339,7 @@ self::CURRENCY_DTN,        ];
     public function __construct(array $data = null)
     {
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['provider_code'] = isset($data['provider_code']) ? $data['provider_code'] : null;
         $this->container['contract_code'] = isset($data['contract_code']) ? $data['contract_code'] : null;
         $this->container['supplier_code'] = isset($data['supplier_code']) ? $data['supplier_code'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
@@ -422,6 +428,30 @@ self::CURRENCY_DTN,        ];
     public function setCode($code)
     {
         $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets provider_code
+     *
+     * @return string
+     */
+    public function getProviderCode()
+    {
+        return $this->container['provider_code'];
+    }
+
+    /**
+     * Sets provider_code
+     *
+     * @param string $provider_code provider_code
+     *
+     * @return $this
+     */
+    public function setProviderCode($provider_code)
+    {
+        $this->container['provider_code'] = $provider_code;
 
         return $this;
     }

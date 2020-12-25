@@ -1,6 +1,6 @@
 <?php
 /**
- * AlgebratecResponse
+ * Provider
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * AlgebratecResponse Class Doc Comment
+ * Provider Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AlgebratecResponse implements ModelInterface, ArrayAccess
+class Provider implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class AlgebratecResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AlgebratecResponse';
+    protected static $swaggerModelName = 'Provider';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,8 @@ class AlgebratecResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'errors' => '\Swagger\Client\Model\Error[]',
-'providers' => '\Swagger\Client\Model\Provider[]',
-'suppliers' => '\Swagger\Client\Model\Supplier[]',
-'success' => 'bool'    ];
+        'name' => 'string',
+'code' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,10 +65,8 @@ class AlgebratecResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'errors' => null,
-'providers' => null,
-'suppliers' => null,
-'success' => null    ];
+        'name' => null,
+'code' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,10 +95,8 @@ class AlgebratecResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors',
-'providers' => 'providers',
-'suppliers' => 'suppliers',
-'success' => 'success'    ];
+        'name' => 'name',
+'code' => 'code'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -110,10 +104,8 @@ class AlgebratecResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors',
-'providers' => 'setProviders',
-'suppliers' => 'setSuppliers',
-'success' => 'setSuccess'    ];
+        'name' => 'setName',
+'code' => 'setCode'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -121,10 +113,8 @@ class AlgebratecResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors',
-'providers' => 'getProviders',
-'suppliers' => 'getSuppliers',
-'success' => 'getSuccess'    ];
+        'name' => 'getName',
+'code' => 'getCode'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -184,10 +174,8 @@ class AlgebratecResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
-        $this->container['providers'] = isset($data['providers']) ? $data['providers'] : null;
-        $this->container['suppliers'] = isset($data['suppliers']) ? $data['suppliers'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
     }
 
     /**
@@ -215,97 +203,49 @@ class AlgebratecResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets name
      *
-     * @return \Swagger\Client\Model\Error[]
+     * @return string
      */
-    public function getErrors()
+    public function getName()
     {
-        return $this->container['errors'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets errors
+     * Sets name
      *
-     * @param \Swagger\Client\Model\Error[] $errors errors
+     * @param string $name name
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setName($name)
     {
-        $this->container['errors'] = $errors;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets providers
+     * Gets code
      *
-     * @return \Swagger\Client\Model\Provider[]
+     * @return string
      */
-    public function getProviders()
+    public function getCode()
     {
-        return $this->container['providers'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets providers
+     * Sets code
      *
-     * @param \Swagger\Client\Model\Provider[] $providers providers
+     * @param string $code code
      *
      * @return $this
      */
-    public function setProviders($providers)
+    public function setCode($code)
     {
-        $this->container['providers'] = $providers;
-
-        return $this;
-    }
-
-    /**
-     * Gets suppliers
-     *
-     * @return \Swagger\Client\Model\Supplier[]
-     */
-    public function getSuppliers()
-    {
-        return $this->container['suppliers'];
-    }
-
-    /**
-     * Sets suppliers
-     *
-     * @param \Swagger\Client\Model\Supplier[] $suppliers suppliers
-     *
-     * @return $this
-     */
-    public function setSuppliers($suppliers)
-    {
-        $this->container['suppliers'] = $suppliers;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool $success success
-     *
-     * @return $this
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
+        $this->container['code'] = $code;
 
         return $this;
     }

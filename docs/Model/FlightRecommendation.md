@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**provider_code** | **string** |  | [optional] 
 **baggage** | [**\Swagger\Client\Model\FlightBaggageAllowance**](FlightBaggageAllowance.md) |  | [optional] 
 **booking_key** | **string** |  | [optional] 
 **fare_details** | [**\Swagger\Client\Model\FlightAvailabilityFareDetails[][]**](array.md) |  | [optional] 

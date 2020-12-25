@@ -1,6 +1,6 @@
 # Swagger\Client\FlightApi
 
-All URIs are relative to */*
+All URIs are relative to *https://virtserver.swaggerhub.com/alswagger/travel-api/1.0.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
