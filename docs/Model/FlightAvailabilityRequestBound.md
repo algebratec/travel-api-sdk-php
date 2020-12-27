@@ -1,4 +1,4 @@
-# FlightAvailibilityRequestBound
+# FlightAvailabilityRequestBound
 
 ## Properties
 Name | Type | Description | Notes

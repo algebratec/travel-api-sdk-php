@@ -1,6 +1,6 @@
 <?php
 /**
- * FlightAvailibilityRequestBoundTest
+ * FlightAvailabilityRequestBoundTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * FlightAvailibilityRequestBoundTest Class Doc Comment
+ * FlightAvailabilityRequestBoundTest Class Doc Comment
  *
  * @category    Class
- * @description FlightAvailibilityRequestBound
+ * @description FlightAvailabilityRequestBound
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class FlightAvailibilityRequestBoundTest extends \PHPUnit_Framework_TestCase
+class FlightAvailabilityRequestBoundTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,9 +69,9 @@ class FlightAvailibilityRequestBoundTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "FlightAvailibilityRequestBound"
+     * Test "FlightAvailabilityRequestBound"
      */
-    public function testFlightAvailibilityRequestBound()
+    public function testFlightAvailabilityRequestBound()
     {
     }
 

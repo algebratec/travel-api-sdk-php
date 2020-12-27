@@ -160,16 +160,16 @@ class FlightAvailabilityRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "requested_flight_non_stop"
+     * Test attribute "direct_flight"
      */
-    public function testPropertyRequestedFlightNonStop()
+    public function testPropertyDirectFlight()
     {
     }
 
     /**
-     * Test attribute "requested_multi_city"
+     * Test attribute "with_baggage"
      */
-    public function testPropertyRequestedMultiCity()
+    public function testPropertyWithBaggage()
     {
     }
 }

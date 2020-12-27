@@ -1,6 +1,6 @@
 <?php
 /**
- * FlightAvailibilityRequestBound
+ * FlightAvailabilityRequestBound
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * FlightAvailibilityRequestBound Class Doc Comment
+ * FlightAvailabilityRequestBound Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class FlightAvailibilityRequestBound implements ModelInterface, ArrayAccess
+class FlightAvailabilityRequestBound implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class FlightAvailibilityRequestBound implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FlightAvailibilityRequestBound';
+    protected static $swaggerModelName = 'FlightAvailabilityRequestBound';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

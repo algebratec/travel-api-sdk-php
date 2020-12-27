@@ -57,7 +57,7 @@ class FlightAvailabilityRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'language' => 'string',
-'bounds' => '\Swagger\Client\Model\FlightAvailibilityRequestBound[]',
+'bounds' => '\Swagger\Client\Model\FlightAvailabilityRequestBound[]',
 'cabin_class' => 'string',
 'trip_type' => 'string',
 'flexible' => 'bool',
@@ -68,8 +68,8 @@ class FlightAvailabilityRequest implements ModelInterface, ArrayAccess
 'nr_of_infant_with_seat' => 'int',
 'nr_of_senior' => 'int',
 'nr_of_youth' => 'int',
-'requested_flight_non_stop' => 'bool',
-'requested_multi_city' => 'bool'    ];
+'direct_flight' => 'bool',
+'with_baggage' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -89,8 +89,8 @@ class FlightAvailabilityRequest implements ModelInterface, ArrayAccess
 'nr_of_infant_with_seat' => null,
 'nr_of_senior' => null,
 'nr_of_youth' => null,
-'requested_flight_non_stop' => null,
-'requested_multi_city' => null    ];
+'direct_flight' => null,
+'with_baggage' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -131,8 +131,8 @@ class FlightAvailabilityRequest implements ModelInterface, ArrayAccess
 'nr_of_infant_with_seat' => 'nrOfInfantWithSeat',
 'nr_of_senior' => 'nrOfSenior',
 'nr_of_youth' => 'nrOfYouth',
-'requested_flight_non_stop' => 'requestedFlightNonStop',
-'requested_multi_city' => 'requestedMultiCity'    ];
+'direct_flight' => 'directFlight',
+'with_baggage' => 'withBaggage'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -152,8 +152,8 @@ class FlightAvailabilityRequest implements ModelInterface, ArrayAccess
 'nr_of_infant_with_seat' => 'setNrOfInfantWithSeat',
 'nr_of_senior' => 'setNrOfSenior',
 'nr_of_youth' => 'setNrOfYouth',
-'requested_flight_non_stop' => 'setRequestedFlightNonStop',
-'requested_multi_city' => 'setRequestedMultiCity'    ];
+'direct_flight' => 'setDirectFlight',
+'with_baggage' => 'setWithBaggage'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -173,8 +173,8 @@ class FlightAvailabilityRequest implements ModelInterface, ArrayAccess
 'nr_of_infant_with_seat' => 'getNrOfInfantWithSeat',
 'nr_of_senior' => 'getNrOfSenior',
 'nr_of_youth' => 'getNrOfYouth',
-'requested_flight_non_stop' => 'getRequestedFlightNonStop',
-'requested_multi_city' => 'getRequestedMultiCity'    ];
+'direct_flight' => 'getDirectFlight',
+'with_baggage' => 'getWithBaggage'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -295,8 +295,8 @@ self::TRIP_TYPE_MD,        ];
         $this->container['nr_of_infant_with_seat'] = isset($data['nr_of_infant_with_seat']) ? $data['nr_of_infant_with_seat'] : null;
         $this->container['nr_of_senior'] = isset($data['nr_of_senior']) ? $data['nr_of_senior'] : null;
         $this->container['nr_of_youth'] = isset($data['nr_of_youth']) ? $data['nr_of_youth'] : null;
-        $this->container['requested_flight_non_stop'] = isset($data['requested_flight_non_stop']) ? $data['requested_flight_non_stop'] : null;
-        $this->container['requested_multi_city'] = isset($data['requested_multi_city']) ? $data['requested_multi_city'] : null;
+        $this->container['direct_flight'] = isset($data['direct_flight']) ? $data['direct_flight'] : null;
+        $this->container['with_baggage'] = isset($data['with_baggage']) ? $data['with_baggage'] : null;
     }
 
     /**
@@ -360,7 +360,7 @@ self::TRIP_TYPE_MD,        ];
     /**
      * Sets language
      *
-     * @param string $language language
+     * @param string $language EN = English <br> FR = French <br> AR = Arabic
      *
      * @return $this
      */
@@ -383,7 +383,7 @@ self::TRIP_TYPE_MD,        ];
     /**
      * Gets bounds
      *
-     * @return \Swagger\Client\Model\FlightAvailibilityRequestBound[]
+     * @return \Swagger\Client\Model\FlightAvailabilityRequestBound[]
      */
     public function getBounds()
     {
@@ -393,7 +393,7 @@ self::TRIP_TYPE_MD,        ];
     /**
      * Sets bounds
      *
-     * @param \Swagger\Client\Model\FlightAvailibilityRequestBound[] $bounds bounds
+     * @param \Swagger\Client\Model\FlightAvailabilityRequestBound[] $bounds bounds
      *
      * @return $this
      */
@@ -450,7 +450,7 @@ self::TRIP_TYPE_MD,        ];
     /**
      * Sets trip_type
      *
-     * @param string $trip_type trip_type
+     * @param string $trip_type rt = Roundtrip <br> ow = Oneway <br> md = multidestination
      *
      * @return $this
      */
@@ -663,49 +663,49 @@ self::TRIP_TYPE_MD,        ];
     }
 
     /**
-     * Gets requested_flight_non_stop
+     * Gets direct_flight
      *
      * @return bool
      */
-    public function getRequestedFlightNonStop()
+    public function getDirectFlight()
     {
-        return $this->container['requested_flight_non_stop'];
+        return $this->container['direct_flight'];
     }
 
     /**
-     * Sets requested_flight_non_stop
+     * Sets direct_flight
      *
-     * @param bool $requested_flight_non_stop requested_flight_non_stop
+     * @param bool $direct_flight if true, the system will reply with direct flights only
      *
      * @return $this
      */
-    public function setRequestedFlightNonStop($requested_flight_non_stop)
+    public function setDirectFlight($direct_flight)
     {
-        $this->container['requested_flight_non_stop'] = $requested_flight_non_stop;
+        $this->container['direct_flight'] = $direct_flight;
 
         return $this;
     }
 
     /**
-     * Gets requested_multi_city
+     * Gets with_baggage
      *
      * @return bool
      */
-    public function getRequestedMultiCity()
+    public function getWithBaggage()
     {
-        return $this->container['requested_multi_city'];
+        return $this->container['with_baggage'];
     }
 
     /**
-     * Sets requested_multi_city
+     * Sets with_baggage
      *
-     * @param bool $requested_multi_city requested_multi_city
+     * @param bool $with_baggage if true, the system will reply with recommendations with baggage only
      *
      * @return $this
      */
-    public function setRequestedMultiCity($requested_multi_city)
+    public function setWithBaggage($with_baggage)
     {
-        $this->container['requested_multi_city'] = $requested_multi_city;
+        $this->container['with_baggage'] = $with_baggage;
 
         return $this;
     }

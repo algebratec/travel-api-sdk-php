@@ -182,7 +182,20 @@ class FlightBaseTraveller implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
+    const SEX_F = 'F';
+const SEX_M = 'M';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSexAllowableValues()
+    {
+        return [
+            self::SEX_F,
+self::SEX_M,        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -216,6 +229,14 @@ class FlightBaseTraveller implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getSexAllowableValues();
+        if (!is_null($this->container['sex']) && !in_array($this->container['sex'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'sex', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -389,12 +410,21 @@ class FlightBaseTraveller implements ModelInterface, ArrayAccess
     /**
      * Sets sex
      *
-     * @param string $sex sex
+     * @param string $sex F = Female <br> M = Male
      *
      * @return $this
      */
     public function setSex($sex)
     {
+        $allowedValues = $this->getSexAllowableValues();
+        if (!is_null($sex) && !in_array($sex, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'sex', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['sex'] = $sex;
 
         return $this;

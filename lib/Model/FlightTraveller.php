@@ -54,7 +54,8 @@ class FlightTraveller extends FlightBaseTraveller
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'special_service' => 'string',
+        'type' => 'string',
+'special_service' => 'string',
 'infant' => '\Swagger\Client\Model\FlightBaseTraveller'    ];
 
     /**
@@ -63,7 +64,8 @@ class FlightTraveller extends FlightBaseTraveller
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'special_service' => null,
+        'type' => null,
+'special_service' => null,
 'infant' => null    ];
 
     /**
@@ -93,7 +95,8 @@ class FlightTraveller extends FlightBaseTraveller
      * @var string[]
      */
     protected static $attributeMap = [
-        'special_service' => 'specialService',
+        'type' => 'type',
+'special_service' => 'specialService',
 'infant' => 'infant'    ];
 
     /**
@@ -102,7 +105,8 @@ class FlightTraveller extends FlightBaseTraveller
      * @var string[]
      */
     protected static $setters = [
-        'special_service' => 'setSpecialService',
+        'type' => 'setType',
+'special_service' => 'setSpecialService',
 'infant' => 'setInfant'    ];
 
     /**
@@ -111,7 +115,8 @@ class FlightTraveller extends FlightBaseTraveller
      * @var string[]
      */
     protected static $getters = [
-        'special_service' => 'getSpecialService',
+        'type' => 'getType',
+'special_service' => 'getSpecialService',
 'infant' => 'getInfant'    ];
 
     /**
@@ -155,7 +160,51 @@ class FlightTraveller extends FlightBaseTraveller
         return self::$swaggerModelName;
     }
 
-    
+    const TYPE_ADT = 'ADT';
+const TYPE_CHD = 'CHD';
+const TYPE_INF = 'INF';
+const TYPE_INS = 'INS';
+const TYPE_YTH = 'YTH';
+const TYPE_SNR = 'SNR';
+const SPECIAL_SERVICE_BBML = 'BBML';
+const SPECIAL_SERVICE_CHML = 'CHML';
+const SPECIAL_SERVICE_MOML = 'MOML';
+const SPECIAL_SERVICE_VGML = 'VGML';
+const SPECIAL_SERVICE_WCHR = 'WCHR';
+const SPECIAL_SERVICE_WCHS = 'WCHS';
+const SPECIAL_SERVICE_WCHC = 'WCHC';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ADT,
+self::TYPE_CHD,
+self::TYPE_INF,
+self::TYPE_INS,
+self::TYPE_YTH,
+self::TYPE_SNR,        ];
+    }
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSpecialServiceAllowableValues()
+    {
+        return [
+            self::SPECIAL_SERVICE_BBML,
+self::SPECIAL_SERVICE_CHML,
+self::SPECIAL_SERVICE_MOML,
+self::SPECIAL_SERVICE_VGML,
+self::SPECIAL_SERVICE_WCHR,
+self::SPECIAL_SERVICE_WCHS,
+self::SPECIAL_SERVICE_WCHC,        ];
+    }
 
 
     /**
@@ -168,6 +217,7 @@ class FlightTraveller extends FlightBaseTraveller
     {
         parent::__construct($data);
 
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['special_service'] = isset($data['special_service']) ? $data['special_service'] : null;
         $this->container['infant'] = isset($data['infant']) ? $data['infant'] : null;
     }
@@ -180,6 +230,22 @@ class FlightTraveller extends FlightBaseTraveller
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSpecialServiceAllowableValues();
+        if (!is_null($this->container['special_service']) && !in_array($this->container['special_service'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'special_service', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -197,6 +263,39 @@ class FlightTraveller extends FlightBaseTraveller
 
 
     /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type ADT = Adult <br> CHD = Child <br> INF = Infant <br> INS = Infant with seat <br> YTH = Youth <br> SNR = Senior
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
      * Gets special_service
      *
      * @return string
@@ -209,12 +308,21 @@ class FlightTraveller extends FlightBaseTraveller
     /**
      * Sets special_service
      *
-     * @param string $special_service special_service
+     * @param string $special_service BBML = INFANT/BABY FOOD <br> CHML = CHILD MEAL <br> MOML = HALAL MEAL <br> VGML = VEGETARIAN MEAL <br> WCHR = Wheelchair <br> WCHS = Wheelchair with assistance <br> WCHC = Passenger is completely motionless
      *
      * @return $this
      */
     public function setSpecialService($special_service)
     {
+        $allowedValues = $this->getSpecialServiceAllowableValues();
+        if (!is_null($special_service) && !in_array($special_service, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'special_service', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['special_service'] = $special_service;
 
         return $this;
